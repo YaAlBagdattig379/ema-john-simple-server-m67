@@ -27,6 +27,13 @@ async function run(){
         res.send(products); 
         // res.send('hello anser are cleared !! '); 
      })
+     app.get('/productCount', async (req,res)=>{
+        const query = { };
+        const cursor = productCollection.find(query);
+        const count = await cursor.count();
+        // res.json(count); 
+        res.send({count}); 
+     })
     }finally{
     // 
    }   
